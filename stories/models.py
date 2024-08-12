@@ -24,6 +24,12 @@ class Story(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     approval = models.IntegerField(choices=APPROVAL, default=0)
 
+    class Meta:
+        ordering = ["-created_on", "tags"]
+
+    def __str__(self):
+        return f"{self.title}, written by {self.author}"
+
 class Comment(models.Model):
     story = models.ForeignKey(
         Story, on_delete=models.CASCADE, related_name="comments")
@@ -33,6 +39,9 @@ class Comment(models.Model):
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approval = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ["created_on", "author"]
 
     def __str__(self):
         return f"{self.author} rated {self.rating} out of 10 and said: {self.body[:20]}"

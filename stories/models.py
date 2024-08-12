@@ -25,7 +25,7 @@ class Story(models.Model):
     approval = models.IntegerField(choices=APPROVAL, default=0)
 
     class Meta:
-        ordering = ["-created_on", "tags"]
+        ordering = ["-created_on", "author"]
 
     def __str__(self):
         return f"{self.title}, written by {self.author}"

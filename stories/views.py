@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Story
 
 # Create your views here.
-def stories(request):
-    return HttpResponse('Stories go here')
+class StoriesList(generic.ListView):
+    queryset = Story.objects.all()

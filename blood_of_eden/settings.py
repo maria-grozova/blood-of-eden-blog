@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'taggit',
     'cloudinary',
+    'django_summernote',
     'stories',
 ]
 

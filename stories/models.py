@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from cloudinary.models import CloudinaryField
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 APPROVAL = ((0, "Draft (Top Secret)"), (1, "Published (Approved for Distribution)"))
 
@@ -22,3 +23,16 @@ class Story(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     approval = models.IntegerField(choices=APPROVAL, default=0)
+
+class Comment(models.Model):
+    story = models.ForeignKey(
+        Story, on_delete=models.CASCADE, related_name="comments")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="commenter")
+    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)])
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    approval = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.author} rated {self.rating} out of 10 and said: {self.body[:20]}"

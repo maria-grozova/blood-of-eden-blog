@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_summernote',
     'stories',
+    'about',
 ]
 
 MIDDLEWARE = [

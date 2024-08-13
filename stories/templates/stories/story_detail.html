@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+
+<div class="story-full">
+    <div class="story-detail">
+        <div class="story-description">
+            <!-- Story title goes in these h1 tags -->
+            <h1 class="story-title">{{ story.title }}</h1>
+        </div>
+        <div class="story-image"></div>
+        <div class="author-date-text">
+             <!-- Story author goes before the | the story's created date goes after -->
+             <p>{{ story.author }} | {{ story.created_on }}</p>
+        </div>   
+    </div>
+</div>
+
+<div class="story-content">
+    <!-- The story content goes inside the story-text. -->
+    <!-- Use the | safe filter inside the template tags -->
+    <p class="story-text">
+         {{ story.content | safe }}
+    </p>    
+</div>
+
+{% endblock content %}

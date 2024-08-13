@@ -32,7 +32,7 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
-.hide {
+.hide, .hide-small-screen {
     display: none;
 }
 
@@ -58,10 +58,7 @@ h1, h2 {
 }
 
 .story-content {
-    display: flex;
-    max-width: 90vw;
-    text-align: center;
-    justify-content: center;
+    font-family: "Cousine", monospace;
 }
 
 .about-container {
@@ -74,7 +71,7 @@ h1, h2 {
 
 /* Media queries */
 @media screen and (min-width: 760px) {
-    .hide {
+    .hide-small-screen {
         display: block;
     }
 }

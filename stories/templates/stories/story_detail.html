@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 <div class="story-full">
     <div class="story-detail">
@@ -9,9 +10,9 @@
         </div>
         <div class="story-image"></div>
         <div class="author-date-text">
-             <!-- Story author goes before the | the story's created date goes after -->
-             <p>{{ story.author }} | {{ story.created_on }}</p>
-        </div>   
+            <!-- Story author goes before the | the story's created date goes after -->
+            <p>{{ story.author }} | {{ story.created_on }}</p>
+        </div>
     </div>
 </div>
 
@@ -19,32 +20,47 @@
     <!-- The story content goes inside the story-text. -->
     <!-- Use the | safe filter inside the template tags -->
     <p class="story-text">
-         {{ story.content | safe }}
-    </p>    
+        {{ story.content | safe }}
+    </p>
 </div>
 <!-- Displaying count of comments -->
 <i class="fa-regular fa-comments"></i> {{ comment_count }}
-  <!-- Displaying Comments -->
-    <h3>Comments:</h3>
-    {% for comment in comments %}
-        <div class="comments
+<!-- Displaying Comments -->
+<h3>Comments:</h3>
+{% for comment in comments %}
+<div class="comments
         {% if not comment.approval and comment.author == user %}
         faded{% elif not comment.approval %}hide{% endif %}">
-        <p>
-            {{ comment.author }}
-            {{ comment.created_on }}
-            wrote:
-        </p>
-        <div id="comment{{ comment.id }}">
-            {{ comment.body | linebreaks }}
-        </div>
-        {% if not comment.approval and comment.author == user %}
-        <p class="approval">
-            This comment is awaiting approval
-        </p>
-        {% endif %}
+    <p>
+        {{ comment.author }} on 
+        {{ comment.created_on }}
+        rated {{ comment.rating }} out of 10
+        and wrote:
+    </p>
+    <div id="comment{{ comment.id }}">
+        {{ comment.body | linebreaks }}
     </div>
-    <!-- The for loop ends here -->
-    {% endfor %}
-      
+    {% if not comment.approval and comment.author == user %}
+    <p class="approval">
+        This comment is awaiting approval
+    </p>
+    {% endif %}
+</div>
+<!-- The for loop ends here -->
+{% endfor %}
+<!-- Creating New Comments -->
+<div class="form-card">
+    {% if user.is_authenticated %}
+    <h3>Leave a comment:</h3>
+    <p>Posting as: {{ user.username }}</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    {% else %}
+    <p>Log in to leave a comment</p>
+    {% endif %}
+</div>
+
 {% endblock content %}

@@ -1,0 +1,61 @@
+{% load static %}
+{% url 'home' as home_url %}
+
+<!DOCTYPE html>
+<html class="h-100" lang="en">
+
+<head>
+    <title>Blood of Eden Library</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../static/images/favicon-32x32.png">
+
+    <!-- Google Fonts import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@0;1&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome import -->
+    <script src="https://kit.fontawesome.com/bee02fdda4.js" crossorigin="anonymous"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav >
+        <div >
+            <a href="{% url 'home' %}">Home</a> 
+        </div>
+        <div >
+            <a href="{% url 'home' %}">Stories</a> 
+        </div>
+        <div >
+            <a href="{% url 'home' %}">About</a> 
+        </div>
+        <div >
+            <a href="{% url 'home' %}">Submit</a> 
+        </div>
+        <div><h1>Blood of Eden</h1></div>
+        <button>Log in / Sign up</button>
+    </nav>
+
+    <main>
+
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Maria The Ninth</p>
+    </footer>
+
+    
+</body>
+
+</html>

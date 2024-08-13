@@ -1,0 +1,12 @@
+/* General Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Cousine", monospace;
+}
+
+h1, h2 {
+    font-family: "Rubik Mono One", system-ui;
+}
+

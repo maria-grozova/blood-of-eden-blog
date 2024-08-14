@@ -2,22 +2,23 @@
 {% block content %}
 {% load static %}
 <div class="about-container">
-    <div>
-        <img src="{% static 'images/about.jpg' %}" width="75%">
+    <div class="about-image">
+        <img id="about-image" src="{% static 'images/about.jpg' %}" alt="Grayscale image of a library shelf">
     </div>
     <div class="about-text">
-        <div>
-            <!-- Title goes between these h2 tags -->
-            <h2>{{ about.title }}</h2>
-            <!-- Content goes directly underneath this -->
+
+        <!-- Title goes between these h2 tags -->
+        <h2>{{ about.title }}</h2>
+        <!-- Content goes directly underneath this -->
+        <p>
             {{ about.content | safe }}
-        </div>
+        </p>
 
-        <div>
-            <!-- Updated on field goes in here -->
 
-            <p><em>Updated on: {{ about.updated_on }}</em></p>
-        </div>
+        <!-- Updated on field goes in here -->
+
+        <p><em>Updated on: {{ about.updated_on }}</em></p>
     </div>
+</div>
 </div>
 {% endblock content %}

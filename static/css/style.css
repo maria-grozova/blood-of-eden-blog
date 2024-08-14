@@ -94,6 +94,11 @@ main .login-status {
     justify-content: center;
 }
 
+.messages i {
+    background-color: #1E2019;
+    color: #F7EBEC;
+}
+
 .message input {
     display: none;
 }
@@ -103,6 +108,16 @@ border: solid;
 padding: 5px;
 background-color: #1E2019;
 color: #F7EBEC;
+}
+
+.account-manage {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.account-manage p, .account-manage form {
+    text-align: center;
 }
 
 main {

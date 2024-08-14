@@ -62,12 +62,10 @@
         <!-- displaying Django messages -->
         <div class="messages">
             {% for message in messages %}
-            <div class="alert {{ message.tags }} alert-dismissible
-            fade show" id="msg" role="alert">
+            <div class="message" id="msg" role="alert">
             {{ message | safe }}
             <input type="checkbox" name="message-close" id="message-close">
             <label for="message-close" ><i class="fa-solid fa-xmark"></i></label>
-    
        </div>
        {% endfor %}
    </div>
@@ -85,6 +83,8 @@
 
     {% block extras %}
     {% endblock %}
+
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>

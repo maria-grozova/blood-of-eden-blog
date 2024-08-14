@@ -4,7 +4,9 @@ from taggit.managers import TaggableManager
 from cloudinary.models import CloudinaryField
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-APPROVAL = ((0, "Draft (Top Secret)"), (1, "Published (Approved for Distribution)"))
+APPROVAL = ((0, "Draft (Top Secret)"),
+            (1, "Published (Approved for Distribution)"))
+
 
 # Create your models here.
 class Story(models.Model):
@@ -30,12 +32,14 @@ class Story(models.Model):
     def __str__(self):
         return f"{self.title}, written by {self.author}"
 
+
 class Comment(models.Model):
     story = models.ForeignKey(
         Story, on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="commenter")
-    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)])
+    rating = models.IntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(10)])
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approval = models.BooleanField(default=False)

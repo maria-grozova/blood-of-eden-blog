@@ -5,11 +5,13 @@ from django.http import HttpResponseRedirect
 from .models import Story, Comment
 from .forms import CommentForm
 
+
 # Create your views here.
 class StoriesList(generic.ListView):
     queryset = Story.objects.all()
     template_name = "stories/index.html"
     paginate_by = 3
+
 
 def story_detail(request, slug):
     """
@@ -32,7 +34,6 @@ def story_detail(request, slug):
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
-        
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             rating = comment_form.save(commit=False)
@@ -43,7 +44,6 @@ def story_detail(request, slug):
                 request, messages.SUCCESS,
                 'Comment submitted and awaiting approval'
             )
-    
 
     comment_form = CommentForm()
 
@@ -57,6 +57,7 @@ def story_detail(request, slug):
             "comment_form": comment_form,
         },
     )
+
 
 def comment_edit(request, slug, comment_id):
     """
@@ -81,6 +82,7 @@ def comment_edit(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('story_detail', args=[slug]))
 
+
 def comment_delete(request, slug, comment_id):
     """
     view to delete comment
@@ -93,6 +95,6 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(request, messages.ERROR, 'Can only delete own comments!')
 
     return HttpResponseRedirect(reverse('story_detail', args=[slug]))

@@ -10,4 +10,5 @@ class CommentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(CommentForm, self).__init__(*args, **kwargs)
         self.fields['rating'].widget.attrs.update({'min': 1, 'max': 10})
-        self.fields['body'].widget.attrs.update({'placeholder': 'Enter your comment here...'})
+        self.fields['body'].widget.attrs.update({'placeholder': 
+            'Enter your comment here...'})

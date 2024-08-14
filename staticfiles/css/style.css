@@ -9,6 +9,61 @@
 h1, h2 {
     font-family: "Rubik Mono One", system-ui;
 }
+header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+position: fixed;
+top: 0;
+z-index: 99;
+width: 100%;
+box-shadow: 0 2px 2px #3a3a3a;
+}
+
+#menu {
+    list-style-type: none;
+}
+
+#logo {
+    font-size: 1.2em;
+}
+
+/* Navbar styles with dropdown toggle */
+
+nav {
+    position: absolute;
+    left: 0;
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: 0 2px 2px #3a3a3a;
+    display: none;
+    top: 100%;
+}
+
+
+/* Nav toggle */
+
+#nav-toggle:checked~nav {
+    display: block;
+}
+
+#nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    font-size: 2rem;
+}
+
+main .login-status {
+    text-align: right;
+    font-size: 0.8em;
+}
+
+main {
+    margin-top: 40px;
+}
 
 .hero-banner {
     display: flex;
@@ -32,7 +87,7 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
-.hide {
+.hide, .hide-small-screen {
     display: none;
 }
 
@@ -58,17 +113,62 @@ h1, h2 {
 }
 
 .story-content {
-    display: flex;
-    max-width: 90vw;
-    text-align: center;
-    justify-content: center;
+    font-family: "Cousine", monospace;
 }
 
-.faded /* unapproved comments*/
+.about-container {
+    display: flex;
+}
+
+.about-text {
+    max-width: 60vw;
+}
 
 /* Media queries */
 @media screen and (min-width: 760px) {
-    .hide {
+    .hide-small-screen {
         display: block;
+    }
+
+    header {
+        justify-content: space-between;
+    }
+
+    nav {
+        display: block;
+        position: relative;
+        box-shadow: none;
+        width:fit-content;
+    }
+
+    #logo {
+        font-size: 1.3em;
+    }
+
+    #menu {
+        display: flex;
+    }
+
+    #menu > li {
+        padding-left: 1rem;
+    }
+
+    .nav-toggle-label {
+        display: none;
+    }
+
+    main {
+        margin-top: 40px;
+    }
+
+}
+
+@media screen and (min-width: 860px) {
+    #logo {
+        font-size: 1.5em;
+    }
+
+    main {
+        margin-top: 52px;
     }
 }

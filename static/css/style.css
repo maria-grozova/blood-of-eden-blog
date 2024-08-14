@@ -149,9 +149,6 @@ main {
 
 #paginator {
     width: 100%;
-    display: flexbox;
-}
-#pagination{
     display: flex;
     justify-content: center;
 }

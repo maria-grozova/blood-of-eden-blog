@@ -33,7 +33,7 @@
     <p>
         {{ comment.author }} on 
         {{ comment.created_on }}
-        rated {{ comment.rating }} out of 10
+        rated <span id="rating{{ comment.id }}">{{ comment.rating }}</span> out of 10
         and wrote:
     </p>
     <div id="comment{{ comment.id }}">

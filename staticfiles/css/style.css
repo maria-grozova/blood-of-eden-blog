@@ -279,7 +279,7 @@ align-self: center;
 #deleteModal {
     position:fixed;
     left: 0;
-    top 100px;
+    height: 100px;
     bottom: 0;
     border: solid #1E2019;
 }

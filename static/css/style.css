@@ -276,6 +276,14 @@ align-self: center;
     padding-left: 5px;
 }
 
+#deleteModal {
+    position:fixed;
+    left: 0;
+    top 100px;
+    bottom: 0;
+    border: solid #1E2019;
+}
+
 /* Footer */
 
 footer p {

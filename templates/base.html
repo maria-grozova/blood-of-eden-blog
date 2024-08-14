@@ -10,7 +10,7 @@
 
 <head>
     <title>Blood of Eden Library</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../static/images/favicon-32x32.png">
 
@@ -40,15 +40,15 @@
                 <li><a class="nav-link {% if request.path == about_url %}active{%endif%}" aria-current="page"
                     href="{% url 'about' %}">About</a></li>
                 {% if user.is_authenticated %}
-                <li><button><a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a></button></li>
+                <li><a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
                 {% else %}
-                <li><button><a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a></button></li>
+                <li><a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a></li>
                 <li><a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
                     href="{% url 'account_signup' %}">Register</a></li>
                 {% endif %}
             </ul>
         </nav>
-        <a id="logo" href="{% url 'home' %}">
+        <a href="{% url 'home' %}">
             <h1 id="logo">Blood of Eden</h1>
         </a>
         

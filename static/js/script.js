@@ -9,6 +9,10 @@ const deleteButtons = document.getElementsByClassName("delete-button");
 const deleteConfirm = document.getElementById("deleteConfirm");
 const closeButtons = document.getElementsByClassName("close-button");
 
+var checkbox = document.querySelector("input[name=message-close]");
+const messageBlock = document.getElementById("msg");
+
+
 /**
 * Initializes edit functionality for the provided edit buttons.
 * 
@@ -55,3 +59,11 @@ for (let button of closeButtons) {
       deleteModal.classList.toggle("hide");
     });
   }
+
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    messageBlock.classList.add("hide");
+ }
+});
+
+  

@@ -2,82 +2,81 @@
 {% load static %}
 
 <div class="story-full">
-    <div class="story-detail">
-        <div class="story-description">
-            <!-- Story title goes in these h1 tags -->
-            <h1 class="story-title">{{ story.title }}</h1>
-        </div>
-        <div class="story-image"></div>
-        <div class="author-date-text">
-            <!-- Story author goes before the | the story's created date goes after -->
-            <p>{{ story.author }} | {{ story.created_on }}</p>
-        </div>
+  <div class="story-detail">
+    <div class="story-description">
+      <!-- Story title goes in these h1 tags -->
+      <h1 class="story-title">{{ story.title }}</h1>
     </div>
+    <div class="story-image"></div>
+    <div class="author-date-text">
+      <!-- Story author goes before the | the story's created date goes after -->
+      <p>{{ story.author }} | {{ story.created_on }}</p>
+    </div>
+  </div>
 </div>
 
 <div class="story-content">
-    <!-- The story content goes inside the story-text. -->
-    <!-- Use the | safe filter inside the template tags -->
-    <p class="story-text">
-        {{ story.content | safe }}
-    </p>
+  <!-- The story content goes inside the story-text. -->
+  <!-- Use the | safe filter inside the template tags -->
+  <p class="story-text">
+    {{ story.content | safe }}
+  </p>
 </div>
-<!-- Displaying count of comments -->
-<i class="fa-regular fa-comments"></i> {{ comment_count }}
-<!-- Displaying Comments -->
-<h3>Comments:</h3>
-{% for comment in comments %}
-<div class="comments
+
+<div id="comment-section">
+  <!-- Displaying count of comments -->
+  <i class="fa-regular fa-comments"></i> {{ comment_count }}
+  <!-- Displaying Comments -->
+  <h3>Comments:</h3>
+  {% for comment in comments %}
+  <div class="comments
         {% if not comment.approval and comment.author == user %}
         faded{% elif not comment.approval %}hide{% endif %}">
     <p>
-        {{ comment.author }} on 
-        {{ comment.created_on }}
-        rated <span id="rating{{ comment.id }}">{{ comment.rating }}</span> out of 10
-        and wrote:
+      {{ comment.author }} on
+      {{ comment.created_on }}
+      rated <span id="rating{{ comment.id }}">{{ comment.rating }}</span> out of 10
+      and wrote:
     </p>
     <div id="comment{{ comment.id }}">
-        {{ comment.body | linebreaks }}
+      {{ comment.body | linebreaks }}
     </div>
     {% if not comment.approval and comment.author == user %}
     <p class="approval">
-        This comment is awaiting approval
+      This comment is awaiting approval
     </p>
     {% endif %}
     {% if user.is_authenticated and comment.author == user %}
-    <button class="delete-button"
-    comment_id="{{ comment.id }}">Delete</button>
-    <button class="edit-button"
-    comment_id="{{ comment.id }}">Edit</button>
+    <button class="delete-button" comment_id="{{ comment.id }}">Delete</button>
+    <button class="edit-button" comment_id="{{ comment.id }}">Edit</button>
     {% endif %}
+  </div>
+
+  <!-- The for loop ends here -->
+  {% endfor %}
 </div>
-<!-- The for loop ends here -->
-{% endfor %}
 <!-- Creating New Comments -->
 <div class="form-card">
-    {% if user.is_authenticated %}
-    <h3>Leave a comment:</h3>
-    <p>Posting as: {{ user.username }}</p>
-    <form id="commentForm" method="post">
-        {% csrf_token %}
-        {{ comment_form.as_p }}
-        <button id="submitButton" type="submit">Submit</button>
-    </form>
-    {% else %}
-    <p>Log in to leave a comment</p>
-    {% endif %}
+  {% if user.is_authenticated %}
+  <h3>Leave a comment:</h3>
+  <p>Posting as: {{ user.username }}</p>
+  <form id="commentForm" method="post">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button id="submitButton" type="submit">Submit</button>
+  </form>
+  {% else %}
+  <p>Log in to leave a comment</p>
+  {% endif %}
 </div>
 
 <!-- Delete confirmation modal -->
-<div class="modal hide" id="deleteModal" tabindex="-1"
-  aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal hide" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title"
-          id="deleteModalLabel">Delete comment?</h5>
-        <button type="button" class="btn-close"
-          data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         Are you sure you want to delete your comment?

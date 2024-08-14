@@ -4,11 +4,15 @@
     margin: 0;
     padding: 0;
     font-family: "Cousine", monospace;
+    background-color: #F7EBEC;
+    color: #1E2019;
 }
 
 h1, h2 {
     font-family: "Rubik Mono One", system-ui;
 }
+
+/* Header*/
 header {
 display: flex;
 justify-content: space-between;
@@ -18,15 +22,18 @@ position: fixed;
 top: 0;
 z-index: 99;
 width: 100%;
-box-shadow: 0 2px 2px #3a3a3a;
+box-shadow: 0 2px 2px #1E2019;
+background-color: #f4d6cc;
 }
 
 #menu {
     list-style-type: none;
+    background-color: #f4d6cc;
 }
 
 #logo {
     font-size: 1.2em;
+    background-color: #f4d6cc;
 }
 
 /* Navbar styles with dropdown toggle */
@@ -34,13 +41,29 @@ box-shadow: 0 2px 2px #3a3a3a;
 nav {
     position: absolute;
     left: 0;
-    background-color: #ffffff;
     width: 100%;
-    box-shadow: 0 2px 2px #3a3a3a;
+    box-shadow: 0 2px 2px #1E2019;
     display: none;
     top: 100%;
+    background-color: #f4d6cc;
 }
 
+nav li, nav a {
+    background-color: #f4d6cc;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline #1E2019;
+}
+
+nav button {
+    border-color: #564D80;
+}
+
+nav i {
+    background-color: #f4d6cc;
+}
 
 /* Nav toggle */
 
@@ -54,11 +77,32 @@ nav {
 
 .nav-toggle-label {
     font-size: 2rem;
+    background-color: #f4d6cc;
+}
+
+.fa-bars:before {
+background-color: #f4d6cc;
 }
 
 main .login-status {
     text-align: right;
     font-size: 0.8em;
+}
+
+.messages {
+    display: flex;
+    justify-content: center;
+}
+
+.message input {
+    display: none;
+}
+
+#msg {
+border: solid;
+padding: 5px;
+background-color: #1E2019;
+color: #F7EBEC;
 }
 
 main {
@@ -68,13 +112,42 @@ main {
 .hero-banner {
     display: flex;
     width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/Hero.jpg);
+    height: 40vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
 }
 
 .hero-text {
     margin: auto;
     max-width: 60%;
+    background-color: transparent;
 }
 
+.hero-text h2, .hero-text p {
+    background-color: transparent;
+    color: #F7EBEC;
+}
+
+#paginator {
+    width: 100%;
+    display: flexbox;
+}
+#pagination{
+    display: flex;
+    justify-content: center;
+}
+
+#pagination li {
+    list-style: none;
+}
+
+#pagination a {
+    background-color: #F7EBEC;
+}
 .stories-container {
     display: flex;
     flex-direction: column;
@@ -87,7 +160,7 @@ main {
     margin-bottom: 20px;
 }
 
-.hide, .hide-small-screen {
+.hide {
     display: none;
 }
 
@@ -114,6 +187,7 @@ main {
 
 .story-content {
     font-family: "Cousine", monospace;
+    margin: 0 5px 0;
 }
 
 .about-container {
@@ -124,11 +198,62 @@ main {
     max-width: 60vw;
 }
 
+#comment-section {
+    margin: 10px;
+}
+
+.form-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #564D80;
+}
+
+.form-card h3 {
+align-self: center;
+}
+
+.form-card h3, .form-card p {
+    background-color: #564D80;
+    color: #F7EBEC;
+    
+
+}
+
+#commentForm {
+    background-color: #564D80;
+    display: flex;
+    flex-direction: column;
+}
+
+#commentForm label {
+    background-color: #564D80;
+    color: #F7EBEC;
+}
+#commentForm button {
+    align-self: center;
+}
+
+.comments {
+    margin: 10px;
+}
+.comments p {
+    border-left: solid #1e2019;
+    padding-left: 5px;
+}
+
+/* Footer */
+
+footer p {
+    text-align: right;
+    font-size: 0.8em;
+}
 /* Media queries */
-@media screen and (min-width: 760px) {
-    .hide-small-screen {
-        display: block;
+@media screen and (min-width: 500px) {
+    .form-card h3, .form-card p {
+    align-self: center;
     }
+}
+@media screen and (min-width: 760px) {
 
     header {
         justify-content: space-between;
@@ -143,6 +268,7 @@ main {
 
     #logo {
         font-size: 1.3em;
+        padding-right: 5px;
     }
 
     #menu {

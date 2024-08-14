@@ -64,6 +64,8 @@ h1, h2 {
     justify-content: center;
 }
 
+.faded /* unapproved comments*/
+
 /* Media queries */
 @media screen and (min-width: 760px) {
     .hide {

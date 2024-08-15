@@ -7,7 +7,15 @@
       <!-- Story title goes in these h1 tags -->
       <h1 class="story-title">{{ story.title }}</h1>
     </div>
-    <div class="story-image"></div>
+    <div class="hero-container">
+      <div class="story-image-container">
+        {% if "placeholder" in story.featured_image.url %}
+        <img class="story-image" src="{% static 'images/placeholder.jpg' %}"alt="placeholder image">
+        {% else %}
+        <img class="story-image" src=" {{ story.featured_image.url }}" alt="{{ story.title }}">
+        {% endif %}
+      </div>
+    </div>
     <div class="author-date-text">
       <!-- Story author goes before the | the story's created date goes after -->
       <p>{{ story.author }} | {{ story.created_on }}</p>

@@ -36,18 +36,20 @@
   {% for comment in comments %}
   <div class="comments
         {% if not comment.approval and comment.author == user %}
-        faded{% elif not comment.approval %}hide{% endif %}">
+        approval{% elif not comment.approval %}hide{% endif %}">
     <p>
       {{ comment.author }} on
       {{ comment.created_on }}
       rated <span id="rating{{ comment.id }}">{{ comment.rating }}</span> out of 10
       and wrote:
     </p>
+    <br>
     <div id="comment{{ comment.id }}">
       {{ comment.body | linebreaks }}
     </div>
+    <br>
     {% if not comment.approval and comment.author == user %}
-    <p class="approval">
+    <p>
       This comment is awaiting approval
     </p>
     {% endif %}

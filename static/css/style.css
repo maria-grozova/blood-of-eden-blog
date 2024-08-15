@@ -12,12 +12,21 @@ h1, h2 {
     font-family: "Rubik Mono One", system-ui;
 }
 
+.hide {
+    display: none;
+}
+
+button {
+    padding: 3px;
+}
+
 /* Header*/
 header {
 display: flex;
 justify-content: space-between;
 align-items: center;
 width: 100%;
+min-height: 38px;
 position: fixed;
 top: 0;
 z-index: 99;
@@ -57,10 +66,6 @@ nav a:hover {
     text-decoration: underline #1E2019;
 }
 
-nav button {
-    border-color: #564D80;
-}
-
 nav i {
     background-color: #f4d6cc;
 }
@@ -87,6 +92,7 @@ background-color: #f4d6cc;
 main .login-status {
     text-align: right;
     font-size: 0.8em;
+    margin-right: 5px;
 }
 
 .messages {
@@ -110,6 +116,10 @@ background-color: #1E2019;
 color: #F7EBEC;
 }
 
+.message label {
+    background-color: #1E2019;
+}
+
 .account-manage {
     display:flex;
     flex-direction: column;
@@ -121,7 +131,7 @@ color: #F7EBEC;
 }
 
 main {
-    margin-top: 40px;
+    margin-top: 42px;
 }
 
 .hero-banner {
@@ -191,11 +201,6 @@ main {
     padding: 5px;
     margin-bottom: 20px;
 }
-
-.hide {
-    display: none;
-}
-
 
 .story-detail {
     display: flex;
@@ -267,10 +272,12 @@ align-self: center;
 
 .comments {
     margin: 10px;
-}
-.comments p {
     border-left: solid #1e2019;
     padding-left: 5px;
+}
+
+.approval p {
+    color: #564D80;
 }
 
 #deleteModal {
@@ -286,6 +293,7 @@ align-self: center;
 footer p {
     text-align: right;
     font-size: 0.8em;
+    margin-right: 5px;
 }
 /* Media queries */
 @media screen and (min-width: 500px) {
@@ -323,10 +331,6 @@ footer p {
         display: none;
     }
 
-    main {
-        margin-top: 40px;
-    }
-
 }
 
 @media screen and (min-width: 860px) {
@@ -334,7 +338,4 @@ footer p {
         font-size: 1.5em;
     }
 
-    main {
-        margin-top: 52px;
-    }
 }

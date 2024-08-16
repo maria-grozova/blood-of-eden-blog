@@ -8,10 +8,14 @@ from .forms import CommentForm
 
 # Create your views here.
 class StoriesList(generic.ListView):
-    queryset = Story.objects.all()
+    queryset = Story.objects.filter(approval=1).order_by("-created_on")
     template_name = "stories/index.html"
     paginate_by = 3
 
+class AllStoriesList(generic.ListView):
+    queryset = Story.objects.filter(approval=1).order_by("-created_on")
+    template_name = "stories/stories_list.html"
+    paginate_by = 6
 
 def story_detail(request, slug):
     """

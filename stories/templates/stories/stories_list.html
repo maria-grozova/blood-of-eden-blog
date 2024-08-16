@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- stories_list.html content starts here -->
+
+<!-- h2 -->
+<div class="pagetitle">
+    <h2>Blood of Eden stories</h2>
+</div>
+<!-- Stories list -->
+<div class="stories-container">
+    {% for story in story_list %}
+    <div class="story-card">
+        <div class="author-tag">
+
+            <p class="author">Author: {{ story.author }}</p>
+
+        </div>
+        <a href="{% url 'story_detail' story.slug %}" class="story-link">
+            <h2>{{ story.title }}</h2>
+        </a>
+        <p>{{ story.feature }}</p>
+        <hr>
+        <p class="date-text">{{ story.tags}} 
+        </p>
+        <p class="date-text">{{ story.created_on}} <i class="fa-regular fa-comments"></i> {{ comment_count }}
+        </p>
+    </div>
+    {% if forloop.counter|divisibleby:6 %}
+
+    
+    {% endif %}
+    {% endfor %}
+
+    
+</div>
+<!-- Pagination -->
+{% if is_paginated %}
+<div id="paginator">
+    <ul id="pagination">
+        {% if page_obj.has_previous %}
+        <li>
+            <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+        </li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+        {% endif %}
+    </ul>
+</div>
+{% endif %}
+
+<!-- stories_list.html content ends here -->
+{% endblock %}

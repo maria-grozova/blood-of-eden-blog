@@ -14,7 +14,7 @@ class StoriesList(generic.ListView):
 
 class AllStoriesList(generic.ListView):
     queryset = Story.objects.filter(approval=1).order_by("-created_on")
-    template_name = "stories/stories_list.html"
+    template_name = "stories/stories.html"
     paginate_by = 6
 
 def story_detail(request, slug):

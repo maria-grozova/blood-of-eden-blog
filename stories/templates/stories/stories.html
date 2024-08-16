@@ -1,12 +1,14 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-<!-- stories_list.html content starts here -->
+<!-- stories.html content starts here -->
 
-<!-- h2 -->
-<div class="pagetitle">
-    <h2>Blood of Eden stories</h2>
+<!-- Hero and h2 -->
+
+<div class="stories-hero-banner">
+    <div class="hero-text">
+        <h2>Blood of Eden stories</h2>
+    </div>
 </div>
 <!-- Stories list -->
 <div class="stories-container">
@@ -20,20 +22,25 @@
         <a href="{% url 'story_detail' story.slug %}" class="story-link">
             <h2>{{ story.title }}</h2>
         </a>
+        <br>
         <p>{{ story.feature }}</p>
         <hr>
-        <p class="date-text">{{ story.tags}} 
+        <br>
+        <p class="date-text">Tags: 
+            {% for tag in story.tags.all %}
+            <span>{{ tag.name }},</span>
+            {% endfor %}
         </p>
-        <p class="date-text">{{ story.created_on}} <i class="fa-regular fa-comments"></i> {{ comment_count }}
+        <p class="date-text">{{ story.created_on}}
         </p>
     </div>
     {% if forloop.counter|divisibleby:6 %}
 
-    
+
     {% endif %}
     {% endfor %}
 
-    
+
 </div>
 <!-- Pagination -->
 {% if is_paginated %}
@@ -51,5 +58,5 @@
 </div>
 {% endif %}
 
-<!-- stories_list.html content ends here -->
+<!-- stories.html content ends here -->
 {% endblock %}

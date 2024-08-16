@@ -8,6 +8,10 @@
     color: #1E2019;
 }
 
+main {
+    margin: 42px 0 15px;
+}
+
 h1, h2 {
     font-family: "Rubik Mono One", system-ui;
 }
@@ -151,12 +155,6 @@ color: #F7EBEC;
 
 .account-manage p, .account-manage form {
     text-align: center;
-}
-
-/* Main */
-
-main {
-    margin-top: 42px;
 }
 
 /* index.html */

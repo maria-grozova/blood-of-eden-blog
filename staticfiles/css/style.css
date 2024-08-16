@@ -22,17 +22,17 @@ button {
 
 /* Header*/
 header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-width: 100%;
-min-height: 38px;
-position: fixed;
-top: 0;
-z-index: 99;
-width: 100%;
-box-shadow: 0 2px 2px #1E2019;
-background-color: #f4d6cc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 38px;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+    box-shadow: 0 2px 2px #1E2019;
+    background-color: #1E2019;
 }
 
 #menu {
@@ -42,7 +42,13 @@ background-color: #f4d6cc;
 
 #logo {
     font-size: 1.2em;
-    background-color: #f4d6cc;
+    background-color: #1E2019;
+    color: #F7EBEC;
+    margin-right: 5px;
+}
+
+.nav-logo {
+    background-color: #1E2019;
 }
 
 /* Navbar styles with dropdown toggle */
@@ -54,20 +60,28 @@ nav {
     box-shadow: 0 2px 2px #1E2019;
     display: none;
     top: 100%;
-    background-color: #f4d6cc;
+    background-color: #1E2019;
 }
 
 nav li, nav a {
-    background-color: #f4d6cc;
+    background-color: #1E2019;
     text-decoration: none;
+    color: #F7EBEC;
+    font-size: 1.1em;
+    padding: 5px;
+}
+
+.active {
+    color: #D1D646;
 }
 
 nav a:hover {
-    text-decoration: underline #1E2019;
+    text-decoration: underline #F7EBEC;
 }
 
 nav i {
-    background-color: #f4d6cc;
+    background-color: #1E2019;
+    color: #F7EBEC;
 }
 
 /* Nav toggle */
@@ -78,22 +92,29 @@ nav i {
 
 #nav-toggle {
     display: none;
+    padding-left: 5px;
 }
 
 .nav-toggle-label {
     font-size: 2rem;
-    background-color: #f4d6cc;
+    background-color: #1E2019;
+    padding-left: 5px;
 }
 
 .fa-bars:before {
-background-color: #f4d6cc;
+    background-color: #1E2019;
+    color: #F7EBEC
 }
+
+/* Login status message */
 
 main .login-status {
     text-align: right;
     font-size: 0.8em;
     margin-right: 5px;
 }
+
+/* Messages */
 
 .messages {
     display: flex;
@@ -120,6 +141,8 @@ color: #F7EBEC;
     background-color: #1E2019;
 }
 
+/* Account management templates (Login, sign out, register */
+
 .account-manage {
     display:flex;
     flex-direction: column;
@@ -130,9 +153,13 @@ color: #F7EBEC;
     text-align: center;
 }
 
+/* Main */
+
 main {
     margin-top: 42px;
 }
+
+/* index.html */
 
 .hero-banner {
     display: flex;
@@ -144,6 +171,26 @@ main {
     background-size: cover;
     position: relative;
     
+}
+
+.hero-text {
+    margin: auto;
+    max-width: 60%;
+    background-color: transparent;
+}
+
+.hero-text h2, .hero-text p {
+    background-color: transparent;
+    color: #F7EBEC;
+}
+
+/* stories.html */
+
+.stories-hero-banner {
+    display: flex;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/placeholder.jpg") no-repeat center center/cover;
+    height: 300px;
 }
 
 .hero-text {
@@ -187,6 +234,11 @@ main {
     flex-direction: column;
     justify-content: space-evenly;
     margin: 10px;
+    max-width: 60vw;
+}
+
+.about-container {
+    display: flex;
 }
 
 /* Story details*/
@@ -195,6 +247,8 @@ main {
     flex-direction: column;
     width: 90%;
     margin: auto;
+    max-width: 1000px;
+    margin-top: 20px;
 }
 
 .story-card {
@@ -239,13 +293,6 @@ main {
     margin: 0 5px 0;
 }
 
-.about-container {
-    display: flex;
-}
-
-.about-text {
-    max-width: 60vw;
-}
 
 #comment-section {
     margin: 10px;
@@ -264,8 +311,6 @@ align-self: center;
 .form-card h3, .form-card p {
     background-color: #564D80;
     color: #F7EBEC;
-    
-
 }
 
 #commentForm {
@@ -307,6 +352,7 @@ footer p {
     font-size: 0.8em;
     margin-right: 5px;
 }
+
 /* Media queries */
 @media screen and (min-width: 500px) {
     .form-card h3, .form-card p {
@@ -324,6 +370,10 @@ footer p {
         position: relative;
         box-shadow: none;
         width:fit-content;
+    }
+
+    nav li, nav a {
+        font-size: 1em;
     }
 
     #logo {
@@ -348,6 +398,10 @@ footer p {
 @media screen and (min-width: 860px) {
     #logo {
         font-size: 1.5em;
+    }
+
+    main .login-status, footer p {
+        margin-right: 15px;
     }
 
 }

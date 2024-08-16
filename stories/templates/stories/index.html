@@ -1,20 +1,18 @@
 {% extends "base.html" %}
-
 {% block content %}
 
 <!-- index.html content starts here -->
 
 <!-- Hero image and h2 -->
-<div class="hero-banner">
+<div class="hero-container">
     <div class="hero-text">
         <h2>Greetings, we are Blood of Eden.</h2>
         <p>Explore and add to our collection of fan stories based on Tamsyn Muir's The Locked Tomb series</p>
     </div>
 </div>
 <!-- Latest Stories Column -->
-<div><h3>Latest Stories</h3></div>
-
 <div class="stories-container">
+    <h3><i class="fa-regular fa-skull" aria-hidden="true"></i> Latest Stories</h3>
     {% for story in story_list %}
     <div class="story-card">
         <div class="author-tag">
@@ -32,11 +30,9 @@
     </div>
     {% if forloop.counter|divisibleby:3 %}
 
-    <div class="row">
+    <a class="cta" href="{% url 'stories' %}">View all stories</a>
         {% endif %}
         {% endfor %}
-
-    </div>
 </div>
 
 <!-- index.html content ends here -->

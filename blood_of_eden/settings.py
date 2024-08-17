@@ -28,7 +28,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['8000-mariagrozov-bloodofeden-dgmctv5tla7.ws.codeinstitute-ide.net', '.herokuapp.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,11 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'cloudinary_storage',
     'taggit',
     'cloudinary',
     'django_summernote',

@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+<!-- About page image -->
 <div class="about-container">
     <div class="about-image">
+        {% if "placeholder" in about.featured_image.url %}
         <img id="about-image" src="{% static 'images/about.jpg' %}" alt="Grayscale image of a library shelf">
+        {% else %}
+        <img src="{{ about.featured_image.url }}"
+        alt="{{ about.title }}">
+        {% endif %}
     </div>
     <div class="about-text">
 

@@ -255,7 +255,7 @@ color: #F7EBEC;
     flex-direction: column;
     justify-content: space-evenly;
     margin: 10px;
-    max-width: 60vw;
+    max-width: 600px;
 }
 
 .about-container {

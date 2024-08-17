@@ -236,7 +236,9 @@ color: #F7EBEC;
 }
 
 #pagination a {
-    background-color: #F7EBEC;
+    background-color: #1E2019;
+    color: #D1D646;
+    padding: 5px;
 }
 
 
@@ -254,8 +256,8 @@ color: #F7EBEC;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin: 10px;
-    max-width: 60vw;
+    padding: 10px;
+    max-width: 600px;
 }
 
 .about-container {
@@ -270,6 +272,11 @@ color: #F7EBEC;
     margin: auto;
     max-width: 1000px;
     margin-top: 20px;
+}
+
+.story-description {
+    display: flex;
+    justify-content: space-around;
 }
 
 .story-card {
@@ -307,16 +314,37 @@ color: #F7EBEC;
 
 .author-date-text {
     text-align: right;
+    margin-bottom: 20px;
 }
 
 .story-content {
     font-family: "Cousine", monospace;
-    margin: 0 5px 0;
+    margin: 0 5px 40px;
+    display: flex;
+    justify-content: center;
 }
 
+.story-text {
+    max-width: 1000px;
+}
 
 #comment-section {
     margin: 10px;
+}
+
+.comment-count {
+    background-color: #1E2019;
+    color: #D1D646;
+    padding: 5px;
+}
+
+.comment-count i {
+    background-color: #1E2019;
+    color: #D1D646;
+}
+
+#comment-section h3 {
+    margin-top: 10px;
 }
 
 .form-card {
@@ -327,6 +355,7 @@ color: #F7EBEC;
 
 .form-card h3 {
 align-self: center;
+padding: 10px;
 }
 
 .form-card h3, .form-card p {

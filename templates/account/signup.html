@@ -6,19 +6,22 @@
 
 {% block content %}
 <div class="account-manage">
-  <h3>{% trans "Sign Up" %}</h3>
+  <h2>{% trans "Sign Up" %}</h2>
+  <br>
   <p>{% blocktrans %}
-    Welcome to Blood of Eden. If you already hold credentials, proceed to <a class="link" href="{{ login_url }}">sign
+    Welcome to Blood of Eden.</p>
+  <p>If you already hold credentials, proceed to <a class="link" href="{{ login_url }}">sign
       in</a> instead.
     {% endblocktrans %}</p>
-
+  <br>
   <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
     {% csrf_token %}
     {{ form.as_p }}
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <button class="btn btn-signup right" type="submit">
+    <br>
+    <button class="account-btn" type="submit">
       {% trans "Sign Up" %} &raquo;</button>
   </form>
 </div>

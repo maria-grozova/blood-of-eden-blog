@@ -341,7 +341,8 @@ color: #F7EBEC;
 }
 
 #comment-section {
-    margin: 10px;
+    max-width: 1000px;
+    margin: auto;
 }
 
 .comment-count {
@@ -353,16 +354,19 @@ color: #F7EBEC;
 .comment-count i {
     background-color: #1E2019;
     color: #D1D646;
+    margin-left: 10px;
 }
 
 #comment-section h3 {
     margin-top: 10px;
+    margin-left: 10px;
 }
 
 .form-card {
     display: flex;
     flex-direction: column;
     background-color: #564D80;
+    padding: 5px;
 }
 
 .form-card h3 {

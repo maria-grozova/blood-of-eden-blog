@@ -12,10 +12,12 @@ class StoriesList(generic.ListView):
     template_name = "stories/index.html"
     paginate_by = 3
 
+
 class AllStoriesList(generic.ListView):
     queryset = Story.objects.filter(approval=1).order_by("-created_on")
     template_name = "stories/stories.html"
     paginate_by = 6
+
 
 def story_detail(request, slug):
     """
@@ -82,7 +84,8 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(request,
+                                 messages.ERROR, 'Error updating comment!')
 
     return HttpResponseRedirect(reverse('story_detail', args=[slug]))
 
@@ -99,6 +102,7 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'Can only delete own comments!')
+        messages.add_message(request,
+                             messages.ERROR, 'Can only delete own comments!')
 
     return HttpResponseRedirect(reverse('story_detail', args=[slug]))

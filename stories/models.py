@@ -48,4 +48,7 @@ class Comment(models.Model):
         ordering = ["created_on", "author"]
 
     def __str__(self):
-        return f"{self.author} rated {self.rating} out of 10 and said: {self.body[:20]}"
+        return (
+            f"{self.author} rated {self.rating} out of 10\n"
+            f"and said: {self.body[:20]}"
+        )

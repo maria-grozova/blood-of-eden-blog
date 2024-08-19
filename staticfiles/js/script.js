@@ -7,9 +7,9 @@ const submitButton = document.getElementById("submitButton");
 const deleteModal = document.getElementById("deleteModal");
 const deleteButtons = document.getElementsByClassName("delete-button");
 const deleteConfirm = document.getElementById("deleteConfirm");
-const closeButtons = document.getElementsByClassName("close-button");
+const modalCheckbox = document.querySelector("input[name=modal-close]");
 
-var checkbox = document.querySelector("input[name=message-close]");
+const messageCheckbox = document.querySelector("input[name=message-close]");
 const messageBlock = document.getElementById("msg");
 
 
@@ -54,13 +54,16 @@ for (let button of deleteButtons) {
     });
   }
 
-for (let button of closeButtons) {
-    button.addEventListener("click", (e) => {
-      deleteModal.classList.toggle("hide");
-    });
-  }
+modalCheckbox.addEventListener('change', function() {
+  if (this.checked) {
+    deleteModal.classList.add("hide");
+   }
+});
 
-checkbox.addEventListener('change', function() {
+/**
+ * Listens for messages to activate close button
+ */
+messageCheckbox.addEventListener('change', function() {
   if (this.checked) {
     messageBlock.classList.add("hide");
  }

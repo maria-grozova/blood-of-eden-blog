@@ -135,10 +135,10 @@ main .login-status {
 }
 
 #msg {
-border: solid;
-padding: 5px;
-background-color: #1E2019;
-color: #F7EBEC;
+    border: solid;
+    padding: 5px;
+    background-color: #1E2019;
+    color: #F7EBEC;
 }
 
 .message label {
@@ -340,6 +340,8 @@ color: #F7EBEC;
     max-width: 1000px;
 }
 
+/* Comment section */
+
 #comment-section {
     max-width: 1000px;
     margin: auto;
@@ -403,12 +405,52 @@ padding: 10px;
     color: #564D80;
 }
 
+/* Delete Modal */
+
 #deleteModal {
     position:fixed;
-    left: 0;
-    height: 100px;
-    bottom: 0;
+    left: 5px;
+    height: 135px;
+    bottom: 60px;
     border: solid #1E2019;
+    background-color: #1E2019;
+    padding: 5px;
+}
+
+#deleteModal div, #deleteModal label, #deleteModal i {
+    background-color: #1E2019;
+    color: #F7EBEC;
+}
+
+#deleteModal i {
+    font-size: 1.5em;
+    padding-right: 5px;
+}
+
+#deleteModal h5 {
+    font-size: 1em;
+    background-color: #1E2019;
+    color: #F7EBEC;
+    padding: 10px;
+}
+
+#deleteModal input {
+    display: none;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-body {
+    padding: 10px;
+    background-color: #1E2019;
+    color: #F7EBEC;
+}
+
+.modal-footer {
+    margin-left: 10px;
 }
 
 /* Footer */

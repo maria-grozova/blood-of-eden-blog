@@ -57,6 +57,7 @@
         
     </header>
     <main>
+        <!-- Authentication message -->
         {% if user.is_authenticated %}
         <p class="login-status">You are logged in as {{ user }}</p>
         {% else %}
@@ -68,7 +69,7 @@
             <div class="message" id="msg" role="alert">
             {{ message | safe }}
             <input type="checkbox" name="message-close" id="message-close">
-            <label for="message-close" ><i class="fa-solid fa-xmark"></i></label>
+            <label for="message-close" ><i class="fa-solid fa-xmark" aria-label="Close message"></i></label>
        </div>
        {% endfor %}
    </div>

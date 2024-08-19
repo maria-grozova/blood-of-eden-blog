@@ -7,9 +7,9 @@ const submitButton = document.getElementById("submitButton");
 const deleteModal = document.getElementById("deleteModal");
 const deleteButtons = document.getElementsByClassName("delete-button");
 const deleteConfirm = document.getElementById("deleteConfirm");
-const modalCheckbox = document.querySelector("input[name=modal-close]");
+var closex = document.querySelector("input[name=modal-close]");
 
-const messageCheckbox = document.querySelector("input[name=message-close]");
+var checkbox = document.querySelector("input[name=message-close]");
 const messageBlock = document.getElementById("msg");
 
 
@@ -35,7 +35,15 @@ for (let button of editButtons) {
     commentForm.setAttribute("action", `edit_comment/${commentId}`);
   });
 }
-
+/**
+ * Listens for messages to activate close button
+ */
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    console.log("checked");
+    messageBlock.classList.add("hide");
+ }
+});
 /**
 * Initializes deletion functionality for the provided delete buttons.
 * 
@@ -54,19 +62,12 @@ for (let button of deleteButtons) {
     });
   }
 
-modalCheckbox.addEventListener('change', function() {
+closex.addEventListener('change', function() {
   if (this.checked) {
     deleteModal.classList.add("hide");
    }
 });
 
-/**
- * Listens for messages to activate close button
- */
-messageCheckbox.addEventListener('change', function() {
-  if (this.checked) {
-    messageBlock.classList.add("hide");
- }
-});
+
 
   

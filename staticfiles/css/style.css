@@ -9,7 +9,7 @@
 }
 
 main {
-    margin: 42px 0 15px;
+    margin: 42px 0 20px;
 }
 
 h1, h2 {
@@ -155,6 +155,17 @@ color: #F7EBEC;
 
 .account-manage p, .account-manage form {
     text-align: center;
+    padding: 5px;
+}
+
+.account-manage ul {
+    list-style: none;
+    text-align: left;
+}
+
+.account-btn {
+    background-color: #1E2019;
+    color: #D1D646;
 }
 
 /* index.html */

@@ -349,12 +349,12 @@ color: #F7EBEC;
     background-color: #1E2019;
     color: #D1D646;
     padding: 5px;
+    margin-left: 10px;
 }
 
 .comment-count i {
     background-color: #1E2019;
     color: #D1D646;
-    margin-left: 10px;
 }
 
 #comment-section h3 {

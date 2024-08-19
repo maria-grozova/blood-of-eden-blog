@@ -454,6 +454,12 @@ padding: 10px;
     margin-left: 10px;
 }
 
+.cancel-delete {
+    padding: 10px;
+    background-color: #1E2019;
+    color: #F7EBEC;
+}
+
 /* Footer */
 
 footer p {

@@ -261,6 +261,7 @@ color: #F7EBEC;
 
 .about-image {
     max-width: 40vw;
+    overflow: hidden;
 }
 
 .about-text {

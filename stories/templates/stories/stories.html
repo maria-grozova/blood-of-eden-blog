@@ -28,7 +28,7 @@
         <br>
         <p class="date-text">Tags: 
             {% for tag in story.tags.all %}
-            <span>{{ tag.name }},</span>
+            <span>{{ tag.name }}{% if not forloop.last %}, {% endif %}</span>
             {% endfor %}
         </p>
         <p class="date-text">{{ story.created_on}}

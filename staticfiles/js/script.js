@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 const editButtons = document.getElementsByClassName("edit-button");
 const commentText = document.getElementById("id_body");
 const commentScore = document.getElementById("id_rating");
@@ -25,7 +27,7 @@ const messageBlock = document.getElementById("msg");
 */
 for (let button of editButtons) {
   button.addEventListener("click", (e) => {
-    let commentId = e.target.getAttribute("comment_id");
+    let commentId = e.target.getAttribute("data-comment_id");
     let commentRating = document.getElementById(`rating${commentId}`).innerHTML;
     console.log(commentRating);
     let commentContent = document.getElementById(`comment${commentId}`).innerText;
@@ -48,7 +50,7 @@ for (let button of editButtons) {
 */
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
-      let commentId = e.target.getAttribute("comment_id");
+      let commentId = e.target.getAttribute("data-comment_id");
       deleteConfirm.href = `delete_comment/${commentId}`;
       deleteModal.classList.toggle("hide");
     });
@@ -60,14 +62,11 @@ for (let button of cancelButtons) {
   });
 }
 
-
+/**
+ * Listens for messages to activate close button
+ */
 checkbox.addEventListener('change', function() {
   if (this.checked) {
     messageBlock.classList.add("hide");
     }
 });
-
-/**
- * Listens for messages to activate close button
- */
-  

@@ -5,7 +5,7 @@
   <div class="story-detail">
     <div class="story-description">
       <!-- Story title goes in these h1 tags -->
-      <h1 class="story-title">{{ story.title }}</h1>
+      <h2 class="story-title">{{ story.title }}</h2>
     </div>
     <div class="hero-container">
       <div class="story-image-container">
@@ -62,8 +62,8 @@
     </p>
     {% endif %}
     {% if user.is_authenticated and comment.author == user %}
-    <button class="delete-button" comment_id="{{ comment.id }}">Delete</button>
-    <button class="edit-button" comment_id="{{ comment.id }}">Edit</button>
+    <button class="delete-button" data-comment_id="{{ comment.id }}">Delete</button>
+    <button class="edit-button" data-comment_id="{{ comment.id }}">Edit</button>
     {% endif %}
   </div>
 
